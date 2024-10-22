@@ -34,5 +34,4 @@ fun main() {
         }
     }
     println(meuJogo.toString() + "\n")
-
-}
+ }
