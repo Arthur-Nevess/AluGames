@@ -1,11 +1,13 @@
 package com.alura.principal
 
 import com.alura.Game.Game
+import com.alura.Gamer
 import com.alura.servicos.Servicos
 import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
+    Gamer.criaGamer(scanner)
     do {
         println("Digite o id do jogo que procura:")
         val id = scanner.nextLine()
