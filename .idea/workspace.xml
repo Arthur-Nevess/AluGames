@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b256df4-9b23-4e1c-97b3-8acdb736ac1a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/alura/Utilitario/retornaIdade.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/Main.kt.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/Main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/testeGamer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/alura/Gamer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/alura/Gamer/Gamer.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/TesteGamer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/alura/principal/TesteGamer.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Data Class" />
         <option value="Kotlin Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>
@@ -68,6 +70,7 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/alura/principal" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.alura.Gamer" />
       <recent name="com.alura.principal" />
       <recent name="com.alura.Game" />
     </key>
@@ -101,7 +104,9 @@
       <workItem from="1729712811348" duration="175000" />
       <workItem from="1729713002899" duration="408000" />
       <workItem from="1729713419150" duration="3113000" />
-      <workItem from="1729861470641" duration="6490000" />
+      <workItem from="1729861470641" duration="9344000" />
+      <workItem from="1730139412083" duration="4796000" />
+      <workItem from="1730461408937" duration="3703000" />
     </task>
     <servers />
   </component>

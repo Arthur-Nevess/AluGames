@@ -1,4 +1,4 @@
-package com.alura
+package com.alura.Gamer
 
 import com.alura.Game.Game
 import java.util.Scanner
@@ -24,12 +24,12 @@ data class Gamer(val nome:String, var  email:String ){
         geraIdInterno()
     }
 
-    init {
-        if (nome.isNullOrBlank()){
-            throw IllegalArgumentException("Nome não pode estar em branco")
-        }
-        this.email = validaEmail()
-    }
+//    init {
+//        if (nome.isNullOrBlank()){
+//            throw IllegalArgumentException("Nome não pode estar em branco")
+//        }
+//        this.email = validaEmail()
+//    }
 
     override fun toString(): String {
         val gamerString = """
@@ -62,7 +62,7 @@ data class Gamer(val nome:String, var  email:String ){
     }
 
     companion object{
-        fun criaGamer (scaner: Scanner) :Gamer{
+        fun criaGamer (scaner: Scanner) : Gamer {
             println("Bem vindos ao AluGames Vamos fazer seu cadastro!\n")
             println("Digite seu nome:")
             val nome = scaner.nextLine()

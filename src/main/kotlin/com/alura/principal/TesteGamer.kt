@@ -1,6 +1,6 @@
 package com.alura.principal
 
-import com.alura.Gamer
+import com.alura.Gamer.Gamer
 
 fun main(){
     val gamer1 = Gamer(

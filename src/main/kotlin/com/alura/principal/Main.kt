@@ -1,22 +1,26 @@
 package com.alura.principal
 
 import com.alura.Game.Game
-import com.alura.Gamer
-import com.alura.servicos.Servicos
+import com.alura.Gamer.Gamer
+import com.alura.servicos.ConsumoApi
+import transformaIdade
 import java.util.*
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    Gamer.criaGamer(scanner)
+    val gamer = Gamer.criaGamer(scanner)
+    println("Cadastro concluido com sucesso! Dados do gamer:")
+    println(gamer)
+    println("Você tem " + gamer.dataDeNascimento?.transformaIdade() + "anos")
     do {
         println("Digite o id do jogo que procura:")
         val id = scanner.nextLine()
         var meuJogo:Game? = null
         val resultado = runCatching {
-            val dadosJogo = Servicos(id)
+            val dadosJogo = ConsumoApi().ConsumoApifun(id)
             meuJogo = Game(
-                dadosJogo.meuJogo.info.title,
-                dadosJogo.meuJogo.info.thumb)
+                dadosJogo.info.title,
+                dadosJogo.info.thumb)
 
         }
 
@@ -38,7 +42,7 @@ fun main() {
             }
         }
 
-        println(meuJogo)
+       gamer.listaGames.add(meuJogo)
 
         println("Deseja buscar mais algum jogo  S/N")
         val resposta = scanner.nextLine()
@@ -46,4 +50,33 @@ fun main() {
     }while(resposta.equals("S", true))
 
     println("Busca finalizada com sucesso!")
- }
+
+
+    println("Jogos ordenado por titulo:")
+
+    var remuve: Array<Int>? =  null
+    val titulos = gamer.listaGames.sortBy {
+        it?.titulo
+    }
+    var i = 1
+    gamer.listaGames.forEach {
+        println("$i- Titulo: ${it?.titulo} ")
+        i++
+//        if(it?.titulo.isNullOrBlank()){
+//        }
+    }
+
+    println("Deseja remover algum jogo da lista?  S/N")
+    val remocao = scanner.nextLine()
+    if (remocao.equals("S", true)){
+        println("Digite o número do jogo que deseja remover:")
+        val numero = scanner.nextInt()
+        gamer.listaGames.removeAt((numero-1))
+        var j = 1
+        gamer.listaGames.forEach {
+            println("$j- Titulo: ${it?.titulo} ")
+            j++
+        }
+    }
+}
+
