@@ -17,7 +17,7 @@ fun main() {
         val id = scanner.nextLine()
         var meuJogo:Game? = null
         val resultado = runCatching {
-            val dadosJogo = ConsumoApi().ConsumoApifun(id)
+            val dadosJogo = ConsumoApi().ConsumoJogo(id)
             meuJogo = Game(
                 dadosJogo.info.title,
                 dadosJogo.info.thumb)
@@ -26,6 +26,7 @@ fun main() {
 
         resultado.onFailure {
             println("Id inválido")
+
         }
 
         resultado.onSuccess {
@@ -42,8 +43,9 @@ fun main() {
             }
         }
 
-       gamer.listaGames.add(meuJogo)
-
+        resultado.onSuccess {
+            gamer.listaGames.add(meuJogo)
+        }
         println("Deseja buscar mais algum jogo  S/N")
         val resposta = scanner.nextLine()
 
@@ -54,7 +56,6 @@ fun main() {
 
     println("Jogos ordenado por titulo:")
 
-    var remuve: Array<Int>? =  null
     val titulos = gamer.listaGames.sortBy {
         it?.titulo
     }
@@ -62,21 +63,23 @@ fun main() {
     gamer.listaGames.forEach {
         println("$i- Titulo: ${it?.titulo} ")
         i++
-//        if(it?.titulo.isNullOrBlank()){
-//        }
     }
 
-    println("Deseja remover algum jogo da lista?  S/N")
-    val remocao = scanner.nextLine()
-    if (remocao.equals("S", true)){
-        println("Digite o número do jogo que deseja remover:")
-        val numero = scanner.nextInt()
-        gamer.listaGames.removeAt((numero-1))
+    do {
+
+        println("Deseja remover algum jogo da lista?  S/N")
+        val remocao = scanner.nextLine()
+        if (remocao.equals("S", true)) {
+            println("Digite o número do jogo que deseja remover:")
+            val numero = scanner.nextInt()
+            gamer.listaGames.removeAt((numero - 1))
+        }
         var j = 1
         gamer.listaGames.forEach {
             println("$j- Titulo: ${it?.titulo} ")
             j++
         }
-    }
+        scanner.nextLine()
+    }while(remocao.equals("S", true))
 }
 
