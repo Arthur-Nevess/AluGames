@@ -5,7 +5,7 @@ import java.util.Scanner
 import kotlin.random.Random
 
 data class Gamer(val nome:String, var  email:String ){
-    var dataDeNascimento: String? = null
+    var dataNascimento: String? = null
     var usuario: String? = null
         set(value) {
             field = value
@@ -19,17 +19,17 @@ data class Gamer(val nome:String, var  email:String ){
     val listaGames = mutableListOf<Game?>()
     constructor(nome: String, email: String, dataDeNascimento: String, usuario:String)
             : this(nome, email) {
-        this.dataDeNascimento = dataDeNascimento
+        this.dataNascimento = dataDeNascimento
         this.usuario = usuario
         geraIdInterno()
     }
 
-//    init {
-//        if (nome.isNullOrBlank()){
-//            throw IllegalArgumentException("Nome não pode estar em branco")
-//        }
-//        this.email = validaEmail()
-//    }
+   init {
+        if (nome.isNullOrBlank()){
+            throw IllegalArgumentException("Nome não pode estar em branco")
+        }
+        this.email = validaEmail()
+    }
 
     override fun toString(): String {
         val gamerString = """
@@ -37,7 +37,7 @@ data class Gamer(val nome:String, var  email:String ){
             
               Nome: $nome
               Email: $email
-              Data de nascimento: $dataDeNascimento
+              Data de nascimento: $dataNascimento
               Usuario: $usuario
               idInterno: $idInterno
               

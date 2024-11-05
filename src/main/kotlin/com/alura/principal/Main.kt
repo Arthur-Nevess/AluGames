@@ -11,7 +11,7 @@ fun main() {
     val gamer = Gamer.criaGamer(scanner)
     println("Cadastro concluido com sucesso! Dados do gamer:")
     println(gamer)
-    println("Você tem " + gamer.dataDeNascimento?.transformaIdade() + "anos")
+    println("Você tem " + gamer.dataNascimento?.transformaIdade() + "anos")
     do {
         println("Digite o id do jogo que procura:")
         val id = scanner.nextLine()

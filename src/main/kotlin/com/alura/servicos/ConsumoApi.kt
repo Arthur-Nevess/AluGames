@@ -1,8 +1,7 @@
 package com.alura.servicos
 
-import com.alura.Game.Game
 import com.alura.Gamer.Gamer
-import com.alura.Utilitario.criagamer
+import com.alura.Utilitario.criaGamer
 import com.alura.info.InfoGamerJson
 import com.alura.info.InfoJogo
 import com.google.gson.Gson
@@ -36,10 +35,12 @@ class ConsumoApi{
         var response: HttpResponse<String> = client
             .send(request, BodyHandlers.ofString())
         val json = response.body()
+
         val gson = Gson()
         val meuGamerTipo = object: TypeToken<List<InfoGamerJson>>() {}.type
         val listaGamer:List <InfoGamerJson> = gson.fromJson(json, meuGamerTipo)
-        val listaGamerOrdenada = listaGamer.map { InfoGamerJson -> InfoGamerJson.criagamer() }
+
+        val listaGamerOrdenada = listaGamer.map { InfoGamerJson -> InfoGamerJson.criaGamer() }
         return listaGamerOrdenada
     }
 }
