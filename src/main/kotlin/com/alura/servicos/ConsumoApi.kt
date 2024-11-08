@@ -14,28 +14,28 @@ import java.net.http.HttpResponse.BodyHandlers
 
 
 class ConsumoApi{
-    fun ConsumoJogo( id: String): InfoJogo{
+    fun consomeApi (endereco:String): String{
         var client: HttpClient = HttpClient.newHttpClient()
         var request: HttpRequest = HttpRequest.newBuilder()
-            .uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=$id"))
+            .uri(URI.create(endereco))
             .build()
         var response: HttpResponse<String> = client
             .send(request, BodyHandlers.ofString())
-        val json = response.body()
+        return response.body()
+
+    }
+
+    fun ConsumoJogo( id: String): InfoJogo{
+        val endereco = "https://www.cheapshark.com/api/1.0/games?id=$id"
+        val json = consomeApi(endereco)
         val gson = Gson()
         val meuJogo = gson.fromJson(json, InfoJogo::class.java)
         return meuJogo
     }
 
     fun consomeGamer(): List<Gamer>{
-        var client: HttpClient = HttpClient.newHttpClient()
-        var request: HttpRequest = HttpRequest.newBuilder()
-            .uri(URI.create("https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/gamers.json"))
-            .build()
-        var response: HttpResponse<String> = client
-            .send(request, BodyHandlers.ofString())
-        val json = response.body()
-
+        val endereco ="https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/gamers.json"
+        val json = consomeApi(endereco)
         val gson = Gson()
         val meuGamerTipo = object: TypeToken<List<InfoGamerJson>>() {}.type
         val listaGamer:List <InfoGamerJson> = gson.fromJson(json, meuGamerTipo)

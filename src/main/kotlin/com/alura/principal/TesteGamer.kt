@@ -7,5 +7,7 @@ fun main(){
     val jogador  = ConsumoApi()
     val listaGamers = jogador.consomeGamer()
 
-    println(listaGamers)
+    val jogo = ConsumoApi().ConsumoJogo("150")
+
+    println(jogo)
 }
