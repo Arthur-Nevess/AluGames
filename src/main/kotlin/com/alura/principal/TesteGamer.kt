@@ -5,9 +5,10 @@ import com.alura.servicos.ConsumoApi
 
 fun main(){
     val jogador  = ConsumoApi()
-    val listaGamers = jogador.consomeGamer()
-
+    val caroline = jogador.consomeGamer().get(3)
     val jogo = ConsumoApi().ConsumoJogo("150")
 
-    println(jogo)
+    val aluguel = caroline.aluga(jogo)
+    println(aluguel)
+
 }

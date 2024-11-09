@@ -19,8 +19,8 @@ fun main() {
         val resultado = runCatching {
             val dadosJogo = ConsumoApi().ConsumoJogo(id)
             meuJogo = Game(
-                dadosJogo.info.title,
-                dadosJogo.info.thumb)
+                dadosJogo.titulo,
+                dadosJogo.capa)
 
         }
 

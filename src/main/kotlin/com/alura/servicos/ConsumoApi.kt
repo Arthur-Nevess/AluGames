@@ -1,5 +1,6 @@
 package com.alura.servicos
 
+import com.alura.Game.Game
 import com.alura.Gamer.Gamer
 import com.alura.Utilitario.criaGamer
 import com.alura.info.InfoGamerJson
@@ -25,12 +26,13 @@ class ConsumoApi{
 
     }
 
-    fun ConsumoJogo( id: String): InfoJogo{
+    fun ConsumoJogo( id: String): Game{
         val endereco = "https://www.cheapshark.com/api/1.0/games?id=$id"
         val json = consomeApi(endereco)
         val gson = Gson()
         val meuJogo = gson.fromJson(json, InfoJogo::class.java)
-        return meuJogo
+        val jogo = Game(meuJogo.info.title, meuJogo.info.thumb)
+        return jogo
     }
 
     fun consomeGamer(): List<Gamer>{

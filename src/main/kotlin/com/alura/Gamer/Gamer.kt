@@ -1,5 +1,6 @@
 package com.alura.Gamer
 
+import com.alura.Game.Aluguel
 import com.alura.Game.Game
 import java.util.Scanner
 import kotlin.random.Random
@@ -44,6 +45,11 @@ data class Gamer(val nome:String, var  email:String ){
         """.trimIndent()
         return gamerString
     }
+
+    fun aluga (jogo: Game):Aluguel{
+        return Aluguel(jogo, this)
+    }
+
     fun geraIdInterno(){
         val numero = Random.nextInt(10000)
         val tag = String.format("%04d", numero)
