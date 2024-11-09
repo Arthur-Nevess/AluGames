@@ -1,7 +1,7 @@
 package com.alura.info
 
-data class InfoJogo (val info : InfoApiShark){
-    override fun toString(): String {
-        return info.toString()
-    }
+data class InfoJogo (val titulo:String,
+                     val capa:String,
+                     val preco:Double,
+                     val descricao:String){
 }

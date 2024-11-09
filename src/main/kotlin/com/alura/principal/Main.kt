@@ -17,10 +17,10 @@ fun main() {
         val id = scanner.nextLine()
         var meuJogo:Game? = null
         val resultado = runCatching {
-            val dadosJogo = ConsumoApi().ConsumoJogo(id)
-            meuJogo = Game(
-                dadosJogo.titulo,
-                dadosJogo.capa)
+            val dadosJogo = ConsumoApi().ConsumoJogo()
+//            meuJogo = Game(
+
+//                 )
 
         }
 

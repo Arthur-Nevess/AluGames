@@ -26,13 +26,14 @@ class ConsumoApi{
 
     }
 
-    fun ConsumoJogo( id: String): Game{
-        val endereco = "https://www.cheapshark.com/api/1.0/games?id=$id"
+    fun ConsumoJogo(): List<Game>{
+        val endereco = "https://raw.githubusercontent.com/jeniblodev/arquivosJson/main/jogos.json"
         val json = consomeApi(endereco)
         val gson = Gson()
-        val meuJogo = gson.fromJson(json, InfoJogo::class.java)
-        val jogo = Game(meuJogo.info.title, meuJogo.info.thumb)
-        return jogo
+        val jogo = object: TypeToken<List<InfoJogo>>() {}.type
+        val listaInfoJogos:List <InfoJogo> = gson.fromJson(json, jogo)
+        val listaJogos = listaInfoJogos.map { InfoJogo ->  Game(InfoJogo.titulo,InfoJogo.capa, InfoJogo.preco)}
+        return listaJogos
     }
 
     fun consomeGamer(): List<Gamer>{
