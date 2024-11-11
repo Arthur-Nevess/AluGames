@@ -2,6 +2,7 @@ package com.alura.Gamer
 
 import com.alura.Game.Aluguel
 import com.alura.Game.Game
+import com.alura.Game.calculaPeriodo
 import java.time.LocalDate
 import java.util.Scanner
 import kotlin.random.Random
@@ -19,6 +20,8 @@ data class Gamer(val nome:String, var  email:String ){
         private set
 
     val listaGames = mutableListOf<Game?>()
+    val listaAluguel = mutableListOf<Aluguel?>()
+
     constructor(nome: String, email: String, dataDeNascimento: String, usuario:String)
             : this(nome, email) {
         this.dataNascimento = dataDeNascimento
@@ -47,8 +50,10 @@ data class Gamer(val nome:String, var  email:String ){
         return gamerString
     }
 
-    fun aluga (jogo: Game, dataInicial: LocalDate, dataFinal: LocalDate):Aluguel{
-        return Aluguel(jogo, this, dataInicial, dataFinal)
+    fun aluga (jogo: Game,periodo: calculaPeriodo):Aluguel{
+        val aluguel = Aluguel(jogo, this, periodo)
+        listaAluguel.add(aluguel)
+        return aluguel
     }
 
     fun geraIdInterno(){
