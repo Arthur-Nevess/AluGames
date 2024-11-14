@@ -70,10 +70,25 @@
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/alura/principal" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.alura.Aluguel" />
       <recent name="com.alura.Gamer" />
       <recent name="com.alura.principal" />
       <recent name="com.alura.Game" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TesteGamerKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.alura.principal.TesteGamerKt" />
+      <module name="AluGames.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.TesteGamerKt" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -107,7 +122,7 @@
       <workItem from="1729861470641" duration="9344000" />
       <workItem from="1730139412083" duration="4796000" />
       <workItem from="1730461408937" duration="14528000" />
-      <workItem from="1731027473482" duration="10964000" />
+      <workItem from="1731027473482" duration="20312000" />
     </task>
     <servers />
   </component>

@@ -1,4 +1,4 @@
-package com.alura.Game
+package com.alura.Aluguel
 
 import java.time.LocalDate
 import java.time.Period

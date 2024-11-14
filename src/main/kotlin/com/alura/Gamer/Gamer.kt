@@ -1,9 +1,10 @@
 package com.alura.Gamer
 
-import com.alura.Game.Aluguel
+import com.alura.Aluguel.Aluguel
+import com.alura.Aluguel.Plano
+import com.alura.Aluguel.PlanoAvulso
 import com.alura.Game.Game
-import com.alura.Game.calculaPeriodo
-import java.time.LocalDate
+import com.alura.Aluguel.calculaPeriodo
 import java.util.Scanner
 import kotlin.random.Random
 
@@ -18,7 +19,7 @@ data class Gamer(val nome:String, var  email:String ){
         }
     var idInterno: String? = null
         private set
-
+    var plano:Plano = PlanoAvulso("Bronze")
     val listaGames = mutableListOf<Game?>()
     val listaAluguel = mutableListOf<Aluguel?>()
 
@@ -50,7 +51,7 @@ data class Gamer(val nome:String, var  email:String ){
         return gamerString
     }
 
-    fun aluga (jogo: Game,periodo: calculaPeriodo):Aluguel{
+    fun aluga (jogo: Game,periodo: calculaPeriodo): Aluguel {
         val aluguel = Aluguel(jogo, this, periodo)
         listaAluguel.add(aluguel)
         return aluguel
@@ -73,8 +74,10 @@ data class Gamer(val nome:String, var  email:String ){
         }
     }
 
-    companion object{
-        fun criaGamer (scaner: Scanner) : Gamer {
+    companion object {
+        //USADO NOS PRIMEIROS PASSOS DO PROJERTO, ESTOU USANDO UMA API PARA CRIAR GAMER
+        //ENTÃO FAZ-SE DESNECESSARIO
+        fun criaGamer(scaner: Scanner): Gamer {
             println("Bem vindos ao AluGames Vamos fazer seu cadastro!\n")
             println("Digite seu nome:")
             val nome = scaner.nextLine()
@@ -82,16 +85,16 @@ data class Gamer(val nome:String, var  email:String ){
             val email = scaner.nextLine()
             println("Deseja fazer seu cadastro completo?  S/N")
             val resposta = scaner.nextLine()
-            if(resposta.equals("s", true)){
+            if (resposta.equals("s", true)) {
                 println("Digite sua data de nascimento:")
                 val dataDeNascimento = scaner.nextLine()
                 println("Digite seu nome de usuario:")
                 val usuario = scaner.nextLine()
                 return Gamer(nome, email, dataDeNascimento, usuario)
-            }
-            else{
+            } else {
                 return Gamer(nome, email)
             }
+
         }
     }
 }
